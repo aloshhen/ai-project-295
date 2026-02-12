@@ -1,30 +1,16 @@
 import { SafeIcon } from './components/SafeIcon';
 import { useState, useEffect, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import {
-  Menu,
-  X,
-  ArrowRight,
-  Mail,
-  Phone,
-  MapPin,
-  ExternalLink,
-  ChevronDown,
-  Play,
-  Pause
-} from 'lucide-react'
+import { Menu, X, ArrowRight, Mail, Phone, MapPin, ExternalLink, ChevronDown } from 'lucide-react'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isVideoPlaying, setIsVideoPlaying] = useState(true)
   const [scrollY, setScrollY] = useState(0)
-
   const heroRef = useRef(null)
   const aboutRef = useRef(null)
   const worksRef = useRef(null)
   const servicesRef = useRef(null)
   const contactRef = useRef(null)
-
   const isHeroInView = useInView(heroRef, { once: true })
   const isAboutInView = useInView(aboutRef, { once: true, margin: "-100px" })
   const isWorksInView = useInView(worksRef, { once: true, margin: "-100px" })
@@ -184,8 +170,7 @@ function App() {
               <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
                 разработчик
               </span>
-              <br />
-              и дизайнер
+              <br /> и дизайнер
             </motion.h1>
 
             <motion.p
@@ -194,8 +179,7 @@ function App() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed"
             >
-              Создаю уникальные цифровые впечатления, объединяющие современный дизайн
-              и передовые технологии. Давайте воплотим ваши идеи в жизнь.
+              Создаю уникальные цифровые впечатления, объединяющие современный дизайн и передовые технологии. Давайте воплотим ваши идеи в жизнь.
             </motion.p>
 
             <motion.div
@@ -213,7 +197,6 @@ function App() {
                 Смотреть работы
                 <SafeIcon name="arrow-right" size={20} className="group-hover:translate-x-1 transition-transform" />
               </motion.button>
-
               <motion.button
                 onClick={() => scrollToSection(aboutRef)}
                 className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full font-semibold text-lg border border-white/20 hover:bg-white/20 transition-all"
@@ -291,14 +274,10 @@ function App() {
                 </span>
               </h2>
               <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                Я — творческий разработчик с многолетним опытом в создании впечатляющих
-                веб-интерфейсов и цифровых продуктов. Моя специализация включает
-                фронтенд-разработку, UI/UX дизайн и интерактивную анимацию.
+                Я — творческий разработчик с многолетним опытом в создании впечатляющих веб-интерфейсов и цифровых продуктов. Моя специализация включает фронтенд-разработку, UI/UX дизайн и интерактивную анимацию.
               </p>
               <p className="text-gray-400 leading-relaxed mb-8">
-                Каждый проект для меня — это возможность создать что-то уникальное,
-                что будет радовать пользователей и приносить реальную пользу бизнесу.
-                Я верю в сочетание эстетики и функциональности.
+                Каждый проект для меня — это возможность создать что-то уникальное, что будет радовать пользователей и приносить реальную пользу бизнесу. Я верю в сочетание эстетики и функциональности.
               </p>
 
               <div className="grid grid-cols-2 gap-6">
@@ -328,7 +307,7 @@ function App() {
       {/* Works Section */}
       <section ref={worksRef} className="py-24 md:py-32 bg-black relative overflow-hidden">
         {/* Background Animation */}
-        <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0 opacity-30 pointer-events-none">
           <video
             autoPlay
             muted
@@ -378,7 +357,8 @@ function App() {
                 <h3 className="text-2xl font-bold mb-2">Брендинг и веб-дизайн</h3>
                 <p className="text-gray-300 text-sm mb-4">Создание фирменного стиля и сайта</p>
                 <button className="flex items-center gap-2 text-purple-400 font-semibold text-sm">
-                  Смотреть проект <SafeIcon name="arrow-right" size={16} />
+                  Смотреть проект
+                  <SafeIcon name="arrow-right" size={16} />
                 </button>
               </div>
             </motion.div>
@@ -403,7 +383,8 @@ function App() {
                 <h3 className="text-2xl font-bold mb-2">Видеопродакшн</h3>
                 <p className="text-gray-300 text-sm mb-4">Создание рекламного контента</p>
                 <button className="flex items-center gap-2 text-purple-400 font-semibold text-sm">
-                  Смотреть проект <SafeIcon name="arrow-right" size={16} />
+                  Смотреть проект
+                  <SafeIcon name="arrow-right" size={16} />
                 </button>
               </div>
             </motion.div>
@@ -428,7 +409,8 @@ function App() {
                 <h3 className="text-2xl font-bold mb-2">3D Анимация и визуализация</h3>
                 <p className="text-gray-300 text-sm mb-4">Создание реалистичной анимации для рекламных кампаний</p>
                 <button className="flex items-center gap-2 text-purple-400 font-semibold text-sm">
-                  Смотреть проект <SafeIcon name="arrow-right" size={16} />
+                  Смотреть проект
+                  <SafeIcon name="arrow-right" size={16} />
                 </button>
               </div>
             </motion.div>
@@ -465,13 +447,17 @@ function App() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="group p-8 bg-white/5 rounded-3xl border border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:bg-white/10"
             >
-              <div className="w-16 h-16 mb-6 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-2xl flex items-center justify-center">
-                <img src={media.svg1} alt="Веб-разработка" className="w-8 h-8" />
+              <div className="w-16 h-16 mb-6 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-2xl flex items-center justify-center relative overflow-hidden group-hover:from-purple-600/30 group-hover:to-pink-600/30 transition-all">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <img
+                  src={media.svg1}
+                  alt="Веб-разработка"
+                  className="w-8 h-8 relative z-10 filter invert brightness-200 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)] group-hover:drop-shadow-[0_0_12px_rgba(168,85,247,1)] transition-all duration-300 group-hover:scale-110"
+                />
               </div>
               <h3 className="text-xl font-bold mb-3">Веб-разработка</h3>
               <p className="text-gray-400 leading-relaxed mb-6">
-                Создание современных и функциональных веб-сайтов с использованием
-                передовых технологий и лучших практик разработки.
+                Создание современных и функциональных веб-сайтов с использованием передовых технологий и лучших практик разработки.
               </p>
               <ul className="space-y-2 text-sm text-gray-500">
                 <li className="flex items-center gap-2">
@@ -496,13 +482,17 @@ function App() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="group p-8 bg-white/5 rounded-3xl border border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:bg-white/10"
             >
-              <div className="w-16 h-16 mb-6 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-2xl flex items-center justify-center">
-                <img src={media.svg2} alt="UI/UX Дизайн" className="w-8 h-8" />
+              <div className="w-16 h-16 mb-6 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-2xl flex items-center justify-center relative overflow-hidden group-hover:from-purple-600/30 group-hover:to-pink-600/30 transition-all">
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <img
+                  src={media.svg2}
+                  alt="UI/UX Дизайн"
+                  className="w-8 h-8 relative z-10 filter invert brightness-200 drop-shadow-[0_0_8px_rgba(236,72,153,0.8)] group-hover:drop-shadow-[0_0_12px_rgba(236,72,153,1)] transition-all duration-300 group-hover:scale-110"
+                />
               </div>
               <h3 className="text-xl font-bold mb-3">UI/UX Дизайн</h3>
               <p className="text-gray-400 leading-relaxed mb-6">
-                Разработка интуитивных и привлекательных интерфейсов, которые
-                обеспечивают лучший пользовательский опыт.
+                Разработка интуитивных и привлекательных интерфейсов, которые обеспечивают лучший пользовательский опыт.
               </p>
               <ul className="space-y-2 text-sm text-gray-500">
                 <li className="flex items-center gap-2">
@@ -527,13 +517,17 @@ function App() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="group p-8 bg-white/5 rounded-3xl border border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:bg-white/10"
             >
-              <div className="w-16 h-16 mb-6 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-2xl flex items-center justify-center">
-                <img src={media.svg3} alt="Анимация" className="w-8 h-8" />
+              <div className="w-16 h-16 mb-6 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-2xl flex items-center justify-center relative overflow-hidden group-hover:from-purple-600/30 group-hover:to-pink-600/30 transition-all">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <img
+                  src={media.svg3}
+                  alt="Анимация"
+                  className="w-8 h-8 relative z-10 filter invert brightness-200 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)] group-hover:drop-shadow-[0_0_12px_rgba(236,72,153,1)] transition-all duration-300 group-hover:scale-110"
+                />
               </div>
               <h3 className="text-xl font-bold mb-3">Анимация и Motion</h3>
               <p className="text-gray-400 leading-relaxed mb-6">
-                Создание плавных и впечатляющих анимаций, которые делают
-                интерфейс живым и запоминающимся.
+                Создание плавных и впечатляющих анимаций, которые делают интерфейс живым и запоминающимся.
               </p>
               <ul className="space-y-2 text-sm text-gray-500">
                 <li className="flex items-center gap-2">
@@ -590,8 +584,7 @@ function App() {
                 <div>
                   <h3 className="text-2xl font-bold mb-6">Свяжитесь со мной</h3>
                   <p className="text-gray-400 mb-8 leading-relaxed">
-                    Заполните форму или используйте контактную информацию ниже.
-                    Я отвечу вам в ближайшее время.
+                    Заполните форму или используйте контактную информацию ниже. Я отвечу вам в ближайшее время.
                   </p>
 
                   <div className="space-y-6">
@@ -637,7 +630,6 @@ function App() {
                       placeholder="Ваше имя"
                     />
                   </div>
-
                   <div>
                     <label className="block text-sm font-medium mb-2 text-gray-300">Email</label>
                     <input
@@ -646,7 +638,6 @@ function App() {
                       placeholder="your@email.com"
                     />
                   </div>
-
                   <div>
                     <label className="block text-sm font-medium mb-2 text-gray-300">Сообщение</label>
                     <textarea
@@ -655,7 +646,6 @@ function App() {
                       placeholder="Расскажите о вашем проекте..."
                     ></textarea>
                   </div>
-
                   <motion.button
                     type="submit"
                     className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-4 rounded-xl font-semibold text-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all flex items-center justify-center gap-2"
